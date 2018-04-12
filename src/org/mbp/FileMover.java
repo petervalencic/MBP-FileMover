@@ -28,7 +28,8 @@ public class FileMover {
         System.out.println("Naslov merilne naprave: " + args[2]);
         System.out.println("===================================");
 
-        Timer timer = new Timer();
+        Timer timer = new Timer(); 
+        
 
         timer.schedule(new TimerTask() {
             public void run() {
