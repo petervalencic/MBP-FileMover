@@ -21,6 +21,10 @@ import org.w3c.dom.NodeList;
 
 public class FileMover {
 
+    /**
+     * 
+     * @param args 
+     */
     private void runIt(String args[]) {
 
         System.out.println("Začasna datoteka: " + args[0]);
