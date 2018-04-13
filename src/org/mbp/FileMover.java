@@ -22,8 +22,8 @@ import org.w3c.dom.NodeList;
 public class FileMover {
 
     /**
-     * 
-     * @param args 
+     *
+     * @param args
      */
     private void runIt(String args[]) {
 
@@ -32,8 +32,7 @@ public class FileMover {
         System.out.println("Naslov merilne naprave: " + args[2]);
         System.out.println("===================================");
 
-        Timer timer = new Timer(); 
-        
+        Timer timer = new Timer();
 
         timer.schedule(new TimerTask() {
             public void run() {
@@ -45,8 +44,6 @@ public class FileMover {
 
                 String temperatura;
                 String slanost;
-                String frekvencaTemperatura;
-                String frekvencaSlanost;
 
                 try {
 
@@ -60,17 +57,9 @@ public class FileMover {
                     NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
                     temperatura = nodes.item(0).getNodeValue().trim();
 
-                    expr = xpath.compile("/root/temperature/freq/text()");
-                    nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-                    frekvencaTemperatura = nodes.item(0).getNodeValue().trim();
-
                     expr = xpath.compile("/root/salinity/value/text()");
                     nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
                     slanost = nodes.item(0).getNodeValue().trim();
-
-                    expr = xpath.compile("/root/salinity/freq/text()");
-                    nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
-                    frekvencaSlanost = nodes.item(0).getNodeValue().trim();
 
                     PrintWriter writer = new PrintWriter(args[0], "UTF-8");
                     writer.println("Temperatura: " + temperatura + " °C");
