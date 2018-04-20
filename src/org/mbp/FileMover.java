@@ -53,17 +53,17 @@ public class FileMover {
                     xpathFactory = XPathFactory.newInstance();
                     XPath xpath = xpathFactory.newXPath();
 
-                    XPathExpression expr = xpath.compile("/root/temperature/value/text()");
+                    XPathExpression expr = xpath.compile("/root/temp/value/text()");
                     NodeList nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
                     temperatura = nodes.item(0).getNodeValue().trim();
 
-                    expr = xpath.compile("/root/salinity/value/text()");
+                    expr = xpath.compile("/root/sal/value/text()");
                     nodes = (NodeList) expr.evaluate(doc, XPathConstants.NODESET);
                     slanost = nodes.item(0).getNodeValue().trim();
 
                     PrintWriter writer = new PrintWriter(args[0], "UTF-8");
-                    writer.println("Temperatura: " + temperatura + " °C");
-                    writer.println("Slanost: " + slanost + " PSU");
+                    writer.println("T: " + temperatura + " °C");
+                    writer.println("S: " + slanost + " PSU");
                     writer.close();
 
                     Path sourceFile = Paths.get(args[0]);
