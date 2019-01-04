@@ -36,7 +36,7 @@ public class FileMover {
 
             dbf = DocumentBuilderFactory.newInstance();
             db = dbf.newDocumentBuilder();
-            doc = db.parse(new URL(args[1]).openStream());
+            doc = db.parse(new URL(args[2]).openStream());
             xpathFactory = XPathFactory.newInstance();
             XPath xpath = xpathFactory.newXPath();
 
